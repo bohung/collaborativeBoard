@@ -1,0 +1,15 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="name">Name</span>
+  </div>
+  <input #clientName type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" (keyup.enter)="onChangeName(clientName.value)">
+</div>
+<ul  *ngIf="clients.length !== 0" class="list-group">
+  <ng-container *ngFor="let client of clients; let i = index;">
+    <li class="list-group-item" [ngClass]="{'text-success': !i }">User{{ i + 1 }}: {{ client.clientID }} - {{ client.clientName }}</li>
+  </ng-container>
+</ul>
+<div class="form-outline">
+  <label class="form-label" for="textAreaExample">Message</label>
+  <textarea #msg class="form-control" id="textAreaExample1" cols="100" rows="4" [value]="messageSubject | async" (keyup)="onChangeValue(msg.value)"></textarea>
+</div>
