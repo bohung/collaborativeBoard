@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve | PORT=1234 node ./node_modules/y-websocket/bin/server.js",
+    "start": "ng serve",
+    "start:host": "ng serve | PORT=1234 node ./node_modules/y-websocket/bin/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

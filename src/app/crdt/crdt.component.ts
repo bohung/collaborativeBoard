@@ -40,7 +40,7 @@ export class CrdtComponent implements OnInit {
     const ydoc = new Y.Doc();
 
     const websocketProvider = new WebsocketProvider(
-      'ws://localhost:1234', 'mycena', ydoc
+      'wss://demos.yjs.dev', 'mycena', this.ydoc
     );
 
     // this.awareness = websocketProvider.awareness;
