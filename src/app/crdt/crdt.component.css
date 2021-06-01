@@ -1,0 +1,239 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  color: #0d0d0d;
+  background-color: #fff;
+  border: 3px solid #0d0d0d;
+  border-radius: 0.75rem;
+ /* Some information about the status */
+}
+.editor__header {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  padding: 0.25rem;
+  border-bottom: 3px solid #0d0d0d;
+}
+.editor__content {
+  padding: 1.25rem 1rem;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.editor__footer {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  border-top: 3px solid #0d0d0d;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0d0d0d;
+  white-space: nowrap;
+  padding: 0.25rem 0.75rem;
+}
+.editor__status {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.editor__status::before {
+  content: ' ';
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(13, 13, 13, 0.5);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.editor__status--connecting::before {
+  background: #616161;
+}
+.editor__status--connected::before {
+  background: #b9f18d;
+}
+.editor__name button {
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0d0d0d;
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.5rem;
+}
+.editor__name button:hover {
+  color: #fff;
+  background-color: #0d0d0d;
+}
+
+
+::ng-deep .ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+::ng-deep .ProseMirror ul {
+  flex: 0 0 auto;
+  margin-right: .5rem;
+}
+::ng-deep .ProseMirror ul, .ProseMirror ol {
+  padding: 0 1rem;
+}
+::ng-deep .ProseMirror h1, .ProseMirror h2, .ProseMirror h3, .ProseMirror h4, .ProseMirror h5, .ProseMirror h6 {
+  line-height: 1.1;
+}
+::ng-deep .ProseMirror code {
+  background-color: rgba(97, 97, 97, 0.1);
+  color: #616161;
+}
+::ng-deep .ProseMirror pre {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+::ng-deep .ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+::ng-deep .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+::ng-deep .ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
+::ng-deep .ProseMirror hr {
+  border: none;
+  border-top: 2px solid rgba(13, 13, 13, 0.1);
+  margin: 2rem 0;
+}
+
+
+.menu-item {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #0d0d0d;
+  border: none;
+  background-color: transparent;
+  border-radius: 0.4rem;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+}
+.menu-item svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.menu-item.is-active, .menu-item:hover {
+  color: #fff;
+  background-color: #0d0d0d;
+}
+
+/* Give a remote user a caret */
+::ng-deep .collaboration-cursor__caret {
+  position: relative;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-left: 1px solid #0d0d0d;
+  border-right: 1px solid #0d0d0d;
+  word-break: normal;
+  pointer-events: none;
+}
+
+/* Render the username above the caret */
+::ng-deep .collaboration-cursor__label {
+  position: absolute;
+  top: -1.4em;
+  left: -1px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  user-select: none;
+  color: #0d0d0d;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px 3px 3px 0;
+  white-space: nowrap;
+}
+
+i {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 30px;
+  color: #0d0d0d;
+  border: none;
+  background-color: transparent;
+  border-radius: 0.4rem;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+i.is-active, i:hover {
+  color: #fff;
+  background-color: #0d0d0d;
+}
+
+.divider {
+  display: inline-block;
+  width: 2px;
+  height: 1.75rem;
+  background-color: rgba(13, 13, 13, 0.1);
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.collaborative {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 500px;
+  color: #0d0d0d;
+  background-color: #fff;
+  border: 3px solid #0d0d0d;
+  border-radius: .75rem;
+}
+
+::ng-deep .ProseMirror {
+  height: 400px;
+  padding: 10px;
+}
+::ng-deep .ProseMirror:focus {
+  outline: none;
+}
+
+.connected:before {
+  background: #b9f18d !important;
+}
+
+.status:before {
+  content: " ";
+  flex: 0 0 auto;
+  display: inline-block;
+  width: .5rem;
+  height: .5rem;
+  background: rgba(13,13,13,.5);
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+
+::ng-deep ul {
+  list-style-type: none !important;
+}
+
+::ng-deep li > label {
+  margin-right: 0.5rem;
+}
+
+::ng-deep li > div {
+  display: inline-block;
+}
