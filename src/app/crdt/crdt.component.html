@@ -15,7 +15,7 @@
 </div> -->
 
 <div class="collaborative form-outline mt-5 mb-5">
-  <label class="form-label" for="message" style="display: block; border-bottom: 3px solid #0d0d0d;">
+  <label *ngIf="editor" class="form-label" for="message" style="display: block; border-bottom: 3px solid #0d0d0d;">
     <i class="ri-bold mr-2" [ngClass]="{ 'is-active': editor.isActive('bold') }" (click)="editor.chain().focus().toggleBold().run()"></i>
     <i class="ri-italic mr-2" [ngClass]="{ 'is-active': editor.isActive('italic') }" (click)="editor.chain().focus().toggleItalic().run()"></i>
     <i class="ri-strikethrough mr-2" [ngClass]="{ 'is-active': editor.isActive('strike') }" (click)="editor.chain().focus().toggleStrike().run()"></i>
@@ -39,13 +39,37 @@
     <i class="ri-arrow-go-back-line" (click)="editor.chain().focus().undo().run()"></i>
     <i class="ri-arrow-go-forward-line" (click)="editor.chain().focus().redo().run()"></i>
   </label>
+  <label *ngIf="!editor" class="form-label" for="message" style="display: block; border-bottom: 3px solid #0d0d0d; opacity: 0.5;">
+    <i class="ri-bold mr-2"></i>
+    <i class="ri-italic mr-2"></i>
+    <i class="ri-strikethrough mr-2"></i>
+    <i class="ri-code-view mr-2"></i>
+    <i class="ri-mark-pen-line"></i>
+    <div class="divider"></div>
+    <i class="ri-h-1"></i>
+    <i class="ri-h-2"></i>
+    <i class="ri-paragraph"></i>
+    <i class="ri-list-unordered"></i>
+    <i class="ri-list-ordered"></i>
+    <i class="ri-list-check-2"></i>
+    <i class="ri-code-box-line"></i>
+    <div class="divider"></div>
+    <i class="ri-double-quotes-l"></i>
+    <i class="ri-separator"></i>
+    <div class="divider"></div>
+    <i class="ri-text-wrap"></i>
+    <i class="ri-format-clear"></i>
+    <div class="divider"></div>
+    <i class="ri-arrow-go-back-line"></i>
+    <i class="ri-arrow-go-forward-line"></i>
+  </label>
   <div class="element"></div>
   <div class="d-flex bd-highlight" style="border-top: 3px solid #0d0d0d;">
     <div class="status p-2 flex-grow-1 bd-highlight" [ngClass]="{ 'connected': status === 'connected'}">
-      <span *ngIf="status === 'connected'">
+      <span *ngIf="status === 'connected'; else disconnected">
         {{ users.length }} user{{ users.length === 1 ? '' : 's' }}
       </span>
-      <ng-template #anotherWord>
+      <ng-template #disconnected>
         <span> offline </span>
       </ng-template>
     </div>

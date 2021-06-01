@@ -203,10 +203,11 @@ i.is-active, i:hover {
   border-radius: .75rem;
 }
 
-::ng-deep .ProseMirror {
+.element {
   height: 400px;
   padding: 10px;
 }
+
 ::ng-deep .ProseMirror:focus {
   outline: none;
 }

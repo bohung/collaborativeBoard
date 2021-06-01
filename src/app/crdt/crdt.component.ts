@@ -40,7 +40,7 @@ export class CrdtComponent implements OnInit {
     const ydoc = new Y.Doc();
 
     const websocketProvider = new WebsocketProvider(
-      'wss://demos.yjs.dev', 'mycena', this.ydoc
+      'wss://demos.yjs.dev', 'mycena', ydoc
     );
 
     // this.awareness = websocketProvider.awareness;
@@ -68,31 +68,32 @@ export class CrdtComponent implements OnInit {
 
     websocketProvider.on('status', (event: any) => {
       this.status = event.status;
-    });
-
-    this.editor = new Editor({
-      element: document.querySelector('.element')!,
-      extensions: [
-        StarterKit.configure({
-          history: false,
-        }),
-        Highlight,
-        TaskList,
-        TaskItem,
-        Collaboration.configure({
-          document: ydoc
-        }),
-        CollaborationCursor.configure({
-          provider: websocketProvider,
-          user: this.currentUser,
-          onUpdate: users => {
-            this.users =  users;
-          },
-        }),
-        CharacterCount.configure({
-          limit: 10000,
-        }),
-      ],
+      if (this.status === 'connected') {
+        this.editor = new Editor({
+          element: document.querySelector('.element')!,
+          extensions: [
+            StarterKit.configure({
+              history: false,
+            }),
+            Highlight,
+            TaskList,
+            TaskItem,
+            Collaboration.configure({
+              document: ydoc
+            }),
+            CollaborationCursor.configure({
+              provider: websocketProvider,
+              user: this.currentUser,
+              onUpdate: users => {
+                this.users =  users;
+              },
+            }),
+            CharacterCount.configure({
+              limit: 10000,
+            })
+          ],
+        });
+      }
     });
   }
 
